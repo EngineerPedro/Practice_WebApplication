@@ -32,5 +32,16 @@ namespace Practice_WebApplication.Controllers
         {
             return Ok(await _characterService.AddCharacter(newCharacter));
         }
+
+        [HttpPut]
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> UpdateCharacter(UpdateCharacterDto updateCharacter)
+        {
+            var response = await _characterService.UpdateCharacter(updateCharacter);
+            if (response != null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
     }
 }

@@ -39,5 +39,38 @@
             serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updateCharacter)
+        {
+            var serviceResponse = new ServiceResponse<GetCharacterDto>();
+            try
+            {
+
+                var character = characters.FirstOrDefault(c => c.Id == updateCharacter.Id);
+                if (character == null)
+                {
+                    serviceResponse.Success = false;
+                    serviceResponse.Message = $"Character with Id '{updateCharacter.Id}' not found.";
+                    return serviceResponse;
+                }
+
+                character.Name = updateCharacter.Name;
+                character.Class = updateCharacter.Class;
+                character.defense = updateCharacter.defense;
+                character.hitPoints = updateCharacter.hitPoints;
+                character.intelligence = updateCharacter.intelligence;
+                character.strength = updateCharacter.strength;
+
+                serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+
+            return serviceResponse;
+        }
     }
 }
