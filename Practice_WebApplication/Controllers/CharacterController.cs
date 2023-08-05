@@ -43,5 +43,16 @@ namespace Practice_WebApplication.Controllers
             }
             return Ok(response);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> DeleteCharacter(int id)
+        {
+            var response = await _characterService.DeleteCharacter(id);
+            if (response != null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
     }
 }

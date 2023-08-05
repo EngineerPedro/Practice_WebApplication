@@ -6,6 +6,7 @@
         {
             CreateMap<Character, GetCharacterDto>().ReverseMap();
             CreateMap<AddCharacterDto, Character>().ReverseMap();
+            CreateMap<UpdateCharacterDto, Character>().ReverseMap();
         }
     }
 }
