@@ -4,6 +4,7 @@ global using Practice_WebApplication.Data;
 global using Practice_WebApplication.Mapper_DTOs_.Character;
 global using Practice_WebApplication.Models;
 global using Practice_WebApplication.Services.CharacterService;
+global using Practice_WebApplication.Mapper_DTOs_.User;
 global using System.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 
 var app = builder.Build();
