@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-
+﻿
 namespace Practice_WebApplication.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CharacterController : ControllerBase

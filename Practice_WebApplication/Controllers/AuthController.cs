@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-
+﻿
 namespace Practice_WebApplication.Controllers
 {
     [ApiController]
